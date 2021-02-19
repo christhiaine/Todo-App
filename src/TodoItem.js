@@ -1,12 +1,15 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 
 
-export default function TodoList() {
+export default function TodoList(props) {
         return(
             <div className="todo-item">
-                <input type="checkbox" />
-                <p>Placeholder text here</p>
+                <input 
+                    type="checkbox"
+                    checked = {props.item.completed}
+                    onChange = {() => props.handleChange(props.item.id)}
+                    />
+                <p>{props.item.text}</p>
             </div>
         );
 }
