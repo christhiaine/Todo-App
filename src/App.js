@@ -29,11 +29,12 @@ class App extends React.Component {
       const updatedTodos = prevState.todos.map( todo => {
         if(todo.id === id) {
           todo.completed = !todo.completed
+          console.log('echo1', todo.completed);
         }
         return todo
       })
       return {
-        todos: updatedTodos
+        todos : updatedTodos
       }
     })
     console.log(this.state.todos)
@@ -41,7 +42,7 @@ class App extends React.Component {
   }
 
   render(){
-    const todosComponent = this.state.todos.map( todo => <TodoItem key = {todo.id} item = {todo} 
+    const todosComponent = this.state.todos.map( item => <TodoItem key = {item.id} item = {item} 
        handleChange = {this.handleChange} />)
 
     return(
